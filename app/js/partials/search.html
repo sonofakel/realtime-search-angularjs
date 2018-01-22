@@ -1,0 +1,13 @@
+    <label>Search for a bootcamp</label>
+    <input placeholder="Enter bootcamp here" ng-model="query">
+    <select ng-show="query" ng-model="bootcampOrder">
+      <option value="name">Name</option>
+      <option value="stars">Highest Rated</option>   
+    </select>
+    <ul ng-if="query" ng-repeat="item in bootcamps | filter: query | orderBy: bootcampOrder:highestRated(bootcampOrder)">
+      <li>{{item.name}}</li>
+      <li>{{item.location}}</li>
+      <li>{{item.stars}}</li>
+      <li>{{item.tagline}}</li>
+      <li>{{item.description}}</li>
+    </ul>
